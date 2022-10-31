@@ -30,4 +30,25 @@ public class TestArray {
         System.out.println(void.class.isPrimitive());
         System.out.println(int.class.isPrimitive());
     }
+
+    @Test
+    public void resizeExpand() {
+        Array<Integer> array = new Array<>();
+        for (int i = 0; i < 100; i++) {
+            array.addLast(i);
+            System.out.println(array);
+        }
+    }
+
+    @Test
+    public void remove() {
+        Array<Integer> array = new Array<>();
+        for (int i = 0; i < 100; i++) {
+            array.addLast(i);
+        }
+
+        for (int i = 0; i < 100; i++) {
+            System.out.println(array.removeFirst());
+        }
+    }
 }

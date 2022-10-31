@@ -41,6 +41,10 @@ public class Array<E> {
             throw new IllegalArgumentException("index out of range");
         }
 
+        if (size == data.length) {
+            resize(2 * data.length);
+        }
+
         /*
         原始循环方式
         for (int i = size - 1; i >= index; i--) {
@@ -52,6 +56,13 @@ public class Array<E> {
         }
         data[index] = e;
         size++;
+    }
+
+    private void resize(int capacity) {
+        System.out.printf("resize size = %d oldCapacity = %d newCapacity = %d\n", size, data.length, capacity);
+        E[] newData = (E[]) new Object[capacity];
+        System.arraycopy(data, 0, newData, 0, size);
+        this.data = newData;
     }
 
     public E get(int index) {
@@ -107,10 +118,14 @@ public class Array<E> {
         }
         E val = data[index];
         if (size > index + 1) {
-            System.arraycopy(data, index + 1, data, index, size - index);
+            System.arraycopy(data, index + 1, data, index, size - (index + 1));
         }
         size--;
         data[size] = null;
+
+        if (size == data.length / 2 && size >= 10) {
+            resize(size);
+        }
         return val;
     }
 
