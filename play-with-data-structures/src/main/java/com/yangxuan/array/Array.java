@@ -54,14 +54,14 @@ public class Array<E> {
         size++;
     }
 
-    E get(int index) {
+    public E get(int index) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("index out of range");
         }
         return data[index];
     }
 
-    void set(int index, E e) {
+    public void set(int index, E e) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("index out of range");
         }

@@ -1,8 +1,10 @@
-package com.yangxuan.array;
+import com.yangxuan.array.Array;
+import org.junit.Test;
 
 public class TestArray {
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         Array<Integer> array = new Array<>();
         array.addLast(1);
         array.addLast(3);
@@ -28,5 +30,4 @@ public class TestArray {
         System.out.println(void.class.isPrimitive());
         System.out.println(int.class.isPrimitive());
     }
-
 }
