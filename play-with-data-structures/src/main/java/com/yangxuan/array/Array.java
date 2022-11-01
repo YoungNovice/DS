@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class Array<E> {
 
+    public static final int INITIAL_CAPACITY = 10;
     private E[] data;
     private int size;
 
@@ -13,7 +14,7 @@ public class Array<E> {
     }
 
     public Array() {
-        this(10);
+        this(INITIAL_CAPACITY);
     }
 
     public int getSize() {
@@ -123,8 +124,9 @@ public class Array<E> {
         size--;
         data[size] = null;
 
-        if (size == data.length / 2 && size >= 10) {
-            resize(size);
+        // 防止震荡
+        if (size == data.length / 4 && size >= INITIAL_CAPACITY) {
+            resize(data.length / 2);
         }
         return val;
     }
