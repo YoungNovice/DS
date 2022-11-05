@@ -73,6 +73,14 @@ public class Array<E> {
         return data[index];
     }
 
+    public E getLast() {
+        return this.get(size - 1);
+    }
+
+    public E getFirst() {
+        return this.get(0);
+    }
+
     public void set(int index, E e) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("index out of range");
@@ -135,5 +143,7 @@ public class Array<E> {
         return String.format("Array: size = %d, capacity = %d\t%s",
                 size, data.length, Arrays.toString(Arrays.copyOf(data, size)));
     }
+
+
 
 }
